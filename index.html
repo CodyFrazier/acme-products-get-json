@@ -54,15 +54,12 @@
                 } )  
             },[])
 			
-			
 			useEffect( () => {
 				axios.get('http://localhost:3000/api/companies')
-				  .then( res => { 
-					  setCompanies(res.data); 
-					  console.log(res.data);
-					} )  
-				},[]
-			)
+				.then( res => { 
+					 setCompanies(res.data); 
+				} )  
+			},[])
 			
             return (
                 <div>
@@ -87,7 +84,7 @@
 									<h3>{ company.name }</h3>
 									<div>{ company.catchphrase }</div>
 									<div>${ company.state }</div>
-									<div>${ company.phone }</div>
+									<div>{ company.phone.split('') }</div>
 								</li>
 							)
 						})
